@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Research Hub</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0e1117; color: #ffffff; padding: 40px; }
+        .container { max-width: 800px; margin: auto; }
+        .log-box { background: #161b22; padding: 20px; border: 1px solid #30363d; border-radius: 8px; font-family: monospace; color: #79c0ff; min-height: 100px; }
+        .defense-card { background: #21262d; padding: 20px; margin-top: 30px; border-radius: 8px; border-left: 5px solid #238636; }
+        h2 { color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Keystroke Analysis Lab</h1>
+        <p>This dashboard monitors input patterns for security evaluation.</p>
+        
+        <h2>Captured Input Log</h2>
+        <div class="log-box">
+            {{ logs if logs else "No data captured yet. Run logger.py to start." }}
+        </div>
+
+        <div class="defense-card">
+            <h2>🛡️ Defensive Research: How to block this?</h2>
+            <ul>
+                <li><strong>MFA (Multi-Factor Authentication):</strong> Even if a keylogger steals a password, they can't get the 2FA code.</li>
+                <li><strong>Anti-Hooking:</strong> Modern EDR (Endpoint Detection Response) software monitors "Hooks" like the ones used in <code>logger.py</code>.</li>
+                <li><strong>Keystroke Encryption:</strong> Some tools encrypt the signal between the keyboard and the OS so the logger only sees "jumbled" text.</li>
+                <li><strong>Virtual Keyboards:</strong> Using a mouse to click keys on screen avoids physical key-tapping logs.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
